@@ -316,10 +316,11 @@ p{
    ============================================================ */
 #screen-2 .backdrop{
   background:
-    linear-gradient(rgba(255,240,200,.78), rgba(255,225,150,.86)),
-    var(--photo1) center/cover no-repeat,
+    linear-gradient(rgba(255,240,200,.20), rgba(255,225,150,.35)),
+    var(-photo1) center/cover no-repeat,
     radial-gradient(ellipse at center, #FFF3D0, #E0A93E);
 }
+
 
 /* ============================================================
    4 ▸ PAGE 3 — PUZZLE
@@ -561,7 +562,7 @@ p{
   <div class="vignette"></div>
   <div class="card">
     <h2>Something is waiting for you…</h2>
-    <h1 style="margin-top:8px;">20 · 09 · 2027</h1>
+    <h1 style="margin-top:8px;">19 · 09 · 2026</h1>
     <div class="count-grid" id="countGrid">
       <div class="count-box"><div class="count-num" id="cd-d">00</div><div class="count-label">Days</div></div>
       <div class="count-box"><div class="count-num" id="cd-h">00</div><div class="count-label">Hours</div></div>
@@ -603,6 +604,7 @@ p{
     <h1 style="margin-top:12px;">I remember the little things</h1>
     <p style="margin-top:20px;">
       The way you laugh.<br>
+       The way you shy<br>
       The way you say my name.<br>
       The way ordinary days turn golden when you're in them.
     </p>
@@ -687,16 +689,16 @@ p{
    ============================================================ */
 const CONFIG = {
   PIN: '172006',
-  UNLOCK_DATE: new Date('2026-09-19T14:56:00'),
-  HER_NAME: 'Thu Hương',
+UNLOCK_DATE: new Date('2026-09-19T18:30:00'),
+  HER_NAME: 'ThuHương',
   YOUR_NAME: 'Yuan',
-  NICKNAME: 'babyboo',
+  NICKNAME: 'Babyboo',
 
   /* ---- EmailJS (fill these 3 in to get an email when she says Yes) ---- */
   EMAILJS: {
-    publicKey:  'YOUR_PUBLIC_KEY',
-    serviceId:  'YOUR_SERVICE_ID',
-    templateId: 'YOUR_TEMPLATE_ID'
+    publicKey:  'q0iD_DESSly_orkTV',
+    serviceId:  'service_q6mcm47',
+    templateId: 'template_zsn6bkt'
   }
 };
 /* ============================================================ */
@@ -1121,7 +1123,7 @@ function revealLetter(){
 function sendEmail(){
   const { publicKey, serviceId, templateId } = CONFIG.EMAILJS;
 
-  if (!publicKey || publicKey === 'YOUR_PUBLIC_KEY'){
+  if (!publicKey || publicKey === 'nKsVG6KvsBIyjhNzDEo3j'){
     console.warn('EmailJS not configured — skipping notification.');
     return;
   }
@@ -1130,10 +1132,10 @@ function sendEmail(){
   emailjs.init({ publicKey });
 
   emailjs.send(serviceId, templateId, {
-    her_name: CONFIG.HER_NAME,
-    your_name: CONFIG.YOUR_NAME,
+    her_name: CONFIG.ThuHương,
+    your_name: CONFIG.Yuan,
     answer: 'YES 💛',
-    message: `${CONFIG.HER_NAME} said YES to being your Valentine!`,
+    message: `${CONFIG.ThuHương} said YES to being your Valentine!`,
     date: new Date().toLocaleString()
   })
   .then(() => console.log('💛 Email sent!'))
